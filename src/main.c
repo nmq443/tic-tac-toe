@@ -181,6 +181,5 @@ int main(int argc, char **argv)
 	{
 		printf("Draw");
 	}
-
     return 0;
 }
