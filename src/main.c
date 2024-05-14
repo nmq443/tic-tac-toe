@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 char board_char(int x)
 {
@@ -136,6 +135,18 @@ void player_move(int *board)
 	board[move] = -1;
 }
 
+int finished(int board[])
+{
+    for (int i = 0; i < 9; ++i)
+    {
+        if (board[i] == 0)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
 int main(int argc, char **argv)
 {
     int order;
@@ -169,6 +180,10 @@ int main(int argc, char **argv)
 			print_board(board);
 			player_move(board);
 		}
+        if (finished(board))
+        {
+            break;
+        }
 	}
 	
 	if (win(board) == 1)
